@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+     <p><strong>
+        <% if value.is_a? String   %>
+          <%= value %>
+        <% elsif value %>
+          <% value.each do |val|%>
+            <%= val[0] %>
+            <br/>
+          <% end %>
+       <% end %>
+     </strong></p>
+    <% end %>
+
+
     <%= yield %>
   </body>
 </html>

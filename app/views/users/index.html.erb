@@ -1,0 +1,10 @@
+<h1>Users</h1>
+<% @users.each do |user| %>
+  <ul class="no-bullets">
+    <li>
+      <%= image_tag(user.avatar, size:"25x25") %>
+      <%= user.username %><br/>
+      <%= user.email %>
+    </li>
+  </ul>
+<% end %>

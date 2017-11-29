@@ -1,0 +1,38 @@
+
+<h1> <%= @question.title %> </h1>
+
+<p>
+  <strong>
+      Description:
+  </strong>
+  <%= @question.description %>
+</p>
+
+
+<ol>
+<% @answers.each do |answer| %>
+    <li>
+      <%= link_to answer.description, answer_path(answer) %>
+    </li>
+<% end %>
+</ol>
+
+<%= form_for [@question, @answer] do |f| %>
+  <div class="form-action">
+    <fieldset>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :user_id %>
+      <%= f.number_field :user_id %>
+    </fieldset>
+  </div>
+
+  <div class="form-action">
+    <%= f.submit "Submit Answer"%>
+  </div>
+
+
+<% end %>
